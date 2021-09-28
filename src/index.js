@@ -66,17 +66,13 @@ window.addEventListener('load', () => {
     taskItem.appendChild(trashIcon);
     taskWrapper.append(taskItem);
   });
-});
+  const taskItemBotom = document.createElement('li');
+  taskItemBotom.classList.add(...['task-item', 'task-bottom']);
+  const paragraphBottom = document.createElement('p');
+  paragraphBottom.classList.add('p-bottom');
+  paragraphBottom.innerHTML = 'Clear all finished tasks';
+  taskItemBotom.appendChild(paragraphBottom);
 
-const taskItemBotom = document.createElement('li');
-taskItemBotom.classList.add(...['task-item', 'task-bottom']);
-const paragraphBottom = document.createElement('p');
-paragraphBottom.classList.add('p-bottom');
-paragraphBottom.innerHTML = 'Clear all finished tasks';
-taskItemBotom.appendChild(paragraphBottom);
-
-paragraphBottom.addEventListener('click', clearAllDone);
-
-setTimeout(() => {
+  paragraphBottom.addEventListener('click', clearAllDone);
   taskWrapper.appendChild(taskItemBotom);
-}, 1000);
+});
