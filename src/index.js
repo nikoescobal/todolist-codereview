@@ -8,6 +8,7 @@ import {
   checkIfDone,
   updateDescription,
   refreshPage,
+  setStorageAndReloadPage
 } from './feature.js';
 
 const taskWrapper = document.getElementById('task-wrapper');
@@ -56,8 +57,7 @@ window.addEventListener('load', () => {
     checkBox.addEventListener('change', () => {
       const done = checkIfDone(task.done);
       task.done = done;
-      localStorage.setItem('tasks', JSON.stringify(tasks));
-      window.location.reload();
+      setStorageAndReloadPage(tasks);
     });
     taskContent.classList.add('p-task-desc');
     contentWrapper.appendChild(checkBox);
